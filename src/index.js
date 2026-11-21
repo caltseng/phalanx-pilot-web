@@ -22,3 +22,11 @@ export function chunk(items, size) {
 export function sum(values) {
   return values.reduce((total, value) => total + value, 0);
 }
+
+/** Limit `value` to the inclusive range [`min`, `max`]. */
+export function clamp(value, min, max) {
+  if (min > max) {
+    throw new RangeError('min must not be greater than max');
+  }
+  return Math.min(Math.max(value, min), max);
+}
